@@ -1,4 +1,18 @@
 [
-  {"roll":"511347","name":"Laiba Nasir","father":"Muhammad Nasir","marks":"950/1100","grade":"A+","board":"Lahore"},
-  {"roll":"123456","name":"Ali Khan","father":"Ahmed Khan","marks":"880/1100","grade":"A","board":"Multan"}
+  {
+    "roll": "511347",
+    "name": "Laiba Nasir",
+    "father": "Nasir Ahmad",
+    "marks": "987",
+    "grade": "A+",
+    "board": "Lahore"
+  },
+  {
+    "roll": "511348",
+    "name": "Ali Khan",
+    "father": "Muhammad Khan",
+    "marks": "876",
+    "grade": "A",
+    "board": "Gujranwala"
+  }
 ]
