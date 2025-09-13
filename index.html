@@ -29,51 +29,79 @@
   <!-- CSS -->
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0; padding: 0;
-      background: #f9f9f9;
+      background: linear-gradient(135deg, #f3f9ff, #dfe9f3);
       color: #333;
-      text-align: center;
     }
     header {
-      background: #004aad;
+      background: linear-gradient(135deg, #004aad, #0077ff);
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    header h1 { margin: 0; }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 8px 0 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
     main {
-      margin: 20px;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
+      margin: 30px auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 12px;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-align: center;
     }
-    select, input, button {
-      padding: 10px;
-      margin: 10px 0;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 5px;
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+      text-align: left;
+    }
+    select, input {
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 15px;
+      margin-bottom: 15px;
     }
     button {
-      background: #004aad;
-      color: white;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
       border: none;
-      cursor: pointer;
       font-size: 16px;
+      background: linear-gradient(135deg, #004aad, #0077ff);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     button:hover {
-      background: #003080;
+      background: linear-gradient(135deg, #003080, #005ad6);
+      transform: translateY(-2px);
+    }
+    #note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
     }
     footer {
-      margin-top: 30px;
-      padding: 15px;
+      margin-top: 40px;
+      padding: 20px;
       background: #222;
       color: #aaa;
+      text-align: center;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -85,7 +113,7 @@
 
   <main>
     <form onsubmit="redirectResult(event)">
-      <label for="board">Select Your Board:</label><br>
+      <label for="board">Select Your Board:</label>
       <select id="board" required>
         <option value="">-- Select Board --</option>
         <option value="lahore">BISE Lahore</option>
@@ -93,25 +121,24 @@
         <option value="faisalabad">BISE Faisalabad</option>
         <option value="gujranwala">BISE Gujranwala</option>
         <option value="rawalpindi">BISE Rawalpindi</option>
+        <option value="sargodha">BISE Sargodha</option>
         <option value="sahiwal">BISE Sahiwal</option>
         <option value="dgkhan">BISE D.G. Khan</option>
         <option value="bahawalpur">BISE Bahawalpur</option>
         <option value="karachi">Karachi Board</option>
         <option value="sindh">Sindh Board</option>
-        <option value="kpk">KPK Board</option>
+        <option value="kpk">KPK Board (Peshawar)</option>
         <option value="quetta">Quetta Board</option>
         <option value="ajk">AJK Board</option>
-      </select><br>
+      </select>
 
-      <label for="roll">Enter Roll Number:</label><br>
-      <input type="text" id="roll" placeholder="e.g. 123456" required><br>
+      <label for="roll">Enter Roll Number:</label>
+      <input type="text" id="roll" placeholder="e.g. 123456" required>
 
       <button type="submit">Check Result</button>
     </form>
 
-    <div id="note" style="margin-top:20px; font-size:14px; color:#555;">
-      Note: You will be redirected to the official board result page.
-    </div>
+    <div id="note">Note: You will be redirected to the official board result page.</div>
   </main>
 
   <footer>
@@ -129,13 +156,14 @@
         return;
       }
 
-      // Boards ka official URL mapping
+      // Official board result URLs
       const urls = {
-        lahore: "https://result.biselahore.com/",
-        multan: "https://results.bisemultan.edu.pk/",
+        lahore: "https://www.biselahore.com/",
+        multan: "https://web.bisemultan.edu.pk/results/",
         faisalabad: "https://www.bisefsd.edu.pk/",
-        gujranwala: "https://www.bisegrw.edu.pk/",
+        gujranwala: "http://bisegrw.com/",
         rawalpindi: "https://www.biserwp.edu.pk/",
+        sargodha: "https://bisesargodha.edu.pk/",
         sahiwal: "https://www.bisesahiwal.edu.pk/",
         dgkhan: "https://www.bisedgkhan.edu.pk/",
         bahawalpur: "https://www.bisebwp.edu.pk/",
@@ -143,11 +171,10 @@
         sindh: "https://www.sindheducation.gov.pk/",
         kpk: "https://www.bisep.edu.pk/",
         quetta: "https://www.bbiseqta.edu.pk/",
-        ajk: "https://www.ajkbise.net/"
+        ajk: "https://ajkbise.edu.pk/"
       };
 
       if(urls[board]){
-        // Redirect to official board site
         window.open(urls[board], "_blank");
       } else {
         alert("Board result page not available yet.");
