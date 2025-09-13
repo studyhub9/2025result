@@ -54,8 +54,8 @@
   <div class="result-area" id="resultArea"></div>
 
 <script>
-  // Path to JSON file that you will upload later (on 18 Sep)
-  const RESULTS_JSON = '/results/2025_2nd.json';
+  // ✅ Correct path (fixed)
+  const RESULTS_JSON = 'results/2025_2nd.json';
 
   let resultsData = null;
 
@@ -80,7 +80,6 @@
     }
   }
 
-  // Title case for display (Uppercase first letters, keep small letters where appropriate)
   function toTitleCase(str){
     return String(str).toLowerCase().split(' ').map(s=>{
       if (!s) return '';
