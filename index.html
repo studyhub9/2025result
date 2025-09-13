@@ -6,16 +6,16 @@
   <title>All Punjab Board - 2nd Year Result 2025</title>
   <style>
     body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#fff; color:#000; text-align:center; }
-    .top-row { background: #1b8a3e; color:#fff; padding:14px 10px; font-size:20px; font-weight:800; }
-    .sub-row { background: #1b8a3e; color:#fff; padding:22px 10px; font-size:28px; font-weight:900; width:60%; margin:18px auto; border-radius:8px; }
-    .click-box { margin:16px; }
-    .click-box button { background:#1b8a3e; color:#fff; border:none; padding:12px 22px; font-size:18px; border-radius:8px; cursor:pointer; font-weight:800;}
-    .search-wrap { max-width:1000px; margin:18px auto; display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
-    .search-card { border:2px solid #1b8a3e; border-radius:8px; padding:18px; width:320px; font-weight:700; font-size:16px; }
+    .top-row { background:#1b8a3e; color:#fff; padding:14px 10px; font-size:20px; font-weight:800; }
+    .sub-row { background:#1b8a3e; color:#fff; padding:22px 10px; font-size:28px; font-weight:900; width:60%; margin:18px auto; border-radius:8px; }
+    .click-box { margin:20px; }
+    .click-box button { background:#1b8a3e; color:#fff; border:none; padding:12px 22px; font-size:18px; border-radius:8px; cursor:pointer; font-weight:800; }
+    .search-wrap { max-width:1000px; margin:20px auto; display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+    .search-card { border:2px solid #1b8a3e; border-radius:8px; padding:20px; width:320px; font-weight:700; font-size:16px; }
     .search-card small { font-weight:600; display:block; margin-bottom:8px; }
     .search-card input { width:100%; padding:10px; margin-top:6px; font-size:15px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box; }
     .search-card button { margin-top:10px; background:#1b8a3e; color:#fff; border:none; padding:10px 12px; border-radius:6px; cursor:pointer; font-weight:800; }
-    .result-area { max-width:1000px; margin:16px auto 60px; padding:8px; text-align:left; }
+    .result-area { max-width:1000px; margin:20px auto 60px; padding:8px; text-align:left; }
     .result-table { width:100%; border-collapse:collapse; }
     .result-table th, .result-table td { padding:8px 10px; border:1px solid #ddd; }
     .no-result { text-align:center; padding:12px; font-weight:800; color:#b00; }
@@ -27,19 +27,14 @@
   <!-- Top row -->
   <div class="top-row">All Punjab Board Result</div>
 
-  <!-- Center big second row -->
+  <!-- Center row -->
   <div class="sub-row">2nd Year Result 2025</div>
 
-  <!-- Click here -->
-  <div class="click-box">
-    <button onclick="window.scrollTo({top:500, behavior:'smooth'})">Click Here</button>
-  </div>
-
-  <!-- Search cards -->
+  <!-- Search boxes -->
   <div class="search-wrap">
     <div class="search-card" aria-label="Search by roll">
       <small>Search Result by ROLL Number</small>
-      <input id="rollInput" placeholder="Enter Roll Number (example: 123456)" />
+      <input id="rollInput" placeholder="Enter Roll Number (e.g. 123456)" />
       <button onclick="searchByRoll()">Search</button>
     </div>
 
@@ -50,34 +45,34 @@
     </div>
   </div>
 
+  <!-- Click here -->
+  <div class="click-box">
+    <button onclick="window.scrollTo({top:500, behavior:'smooth'})">Click Here</button>
+  </div>
+
   <!-- Results -->
   <div class="result-area" id="resultArea"></div>
 
 <script>
-  // ✅ Correct path (fixed)
+  // JSON file path (upload later when result is announced)
   const RESULTS_JSON = 'results/2025_2nd.json';
-
   let resultsData = null;
 
   async function loadResults(){
     if (resultsData !== null) return;
     try {
-      const r = await fetch(RESULTS_JSON, {cache: "no-store"});
+      const r = await fetch(RESULTS_JSON, {cache:"no-store"});
       if (!r.ok) { resultsData = []; return; }
       const json = await r.json();
-      // normalize keys
       resultsData = json.map(item => ({
-        roll: (item.roll || item.Roll || item.RollNumber || item.roll_no || item['Roll No'] || '').toString().trim(),
-        name: (item.name || item.Name || item.StudentName || item['Student Name'] || '').toString().trim(),
-        father: item.father || item.Father || item['Father Name'] || '',
-        marks: item.marks || item.Marks || item.total || item.Total || '',
-        grade: item.grade || item.Grade || '',
-        board: item.board || item.Board || ''
+        roll: (item.roll || '').toString().trim(),
+        name: (item.name || '').toString().trim(),
+        father: item.father || '',
+        marks: item.marks || '',
+        grade: item.grade || '',
+        board: item.board || ''
       }));
-    } catch(e){
-      console.error('Failed to load results:', e);
-      resultsData = [];
-    }
+    } catch(e){ resultsData = []; }
   }
 
   function toTitleCase(str){
@@ -105,7 +100,7 @@
   }
 
   function escapeHtml(s){
-    if (s===null||s===undefined) return '';
+    if (!s) return '';
     return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   }
 
@@ -115,8 +110,8 @@
     area.innerHTML = '';
     if (!roll) { area.innerHTML = '<div class="no-result">Please enter Roll Number.</div>'; return; }
     await loadResults();
-    if (!resultsData.length) { area.innerHTML = '<div class="no-result">Results file not uploaded yet. Upload `results/2025_2nd.json` to your repo.</div>'; return; }
-    const found = resultsData.find(r => r.roll === roll || r.roll.replace(/\D/g,'') === roll.replace(/\D/g,''));
+    if (!resultsData.length) { area.innerHTML = '<div class="no-result">Results file not uploaded yet.</div>'; return; }
+    const found = resultsData.find(r => r.roll === roll);
     if (!found) { area.innerHTML = `<div class="no-result">No Result Found for roll: ${escapeHtml(roll)}</div>`; return; }
     area.innerHTML = renderTable([found]);
   }
@@ -127,7 +122,7 @@
     area.innerHTML = '';
     if (!name) { area.innerHTML = '<div class="no-result">Please enter Name.</div>'; return; }
     await loadResults();
-    if (!resultsData.length) { area.innerHTML = '<div class="no-result">Results file not uploaded yet. Upload `results/2025_2nd.json` to your repo.</div>'; return; }
+    if (!resultsData.length) { area.innerHTML = '<div class="no-result">Results file not uploaded yet.</div>'; return; }
     const matches = resultsData.filter(r => (r.name || '').toLowerCase().includes(name));
     if (!matches.length) { area.innerHTML = `<div class="no-result">No Results Found for name: ${escapeHtml(name)}</div>`; return; }
     area.innerHTML = renderTable(matches.slice(0,50));
