@@ -8,18 +8,9 @@
     body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#fff; color:#000; text-align:center; }
     .top-row { background:#1b8a3e; color:#fff; padding:14px 10px; font-size:20px; font-weight:800; }
     .sub-row { background:#1b8a3e; color:#fff; padding:22px 10px; font-size:28px; font-weight:900; width:60%; margin:18px auto; border-radius:8px; }
-    .click-box { margin:20px; }
-    .click-box button { background:#1b8a3e; color:#fff; border:none; padding:12px 22px; font-size:18px; border-radius:8px; cursor:pointer; font-weight:800; }
-    .search-wrap { max-width:1000px; margin:20px auto; display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
-    .search-card { border:2px solid #1b8a3e; border-radius:8px; padding:20px; width:320px; font-weight:700; font-size:16px; }
-    .search-card small { font-weight:600; display:block; margin-bottom:8px; }
-    .search-card input { width:100%; padding:10px; margin-top:6px; font-size:15px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box; }
-    .search-card button { margin-top:10px; background:#1b8a3e; color:#fff; border:none; padding:10px 12px; border-radius:6px; cursor:pointer; font-weight:800; }
-    .result-area { max-width:1000px; margin:20px auto 60px; padding:8px; text-align:left; }
-    .result-table { width:100%; border-collapse:collapse; }
-    .result-table th, .result-table td { padding:8px 10px; border:1px solid #ddd; }
-    .no-result { text-align:center; padding:12px; font-weight:800; color:#b00; }
-    @media (max-width:720px){ .sub-row{ width:90%; font-size:22px; } .search-card{ width:90%; } }
+    .box { margin:20px auto; width:300px; }
+    select { width:100%; padding:10px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
+    button { margin-top:15px; background:#1b8a3e; color:#fff; border:none; padding:12px 20px; font-size:18px; border-radius:8px; cursor:pointer; font-weight:800; }
   </style>
 </head>
 <body>
@@ -30,102 +21,31 @@
   <!-- Center row -->
   <div class="sub-row">2nd Year Result 2025</div>
 
-  <!-- Search boxes -->
-  <div class="search-wrap">
-    <div class="search-card" aria-label="Search by roll">
-      <small>Search Result by ROLL Number</small>
-      <input id="rollInput" placeholder="Enter Roll Number (e.g. 123456)" />
-      <button onclick="searchByRoll()">Search</button>
-    </div>
-
-    <div class="search-card" aria-label="Search by name">
-      <small>Search Result by Name</small>
-      <input id="nameInput" placeholder="Enter Student Name (e.g. Ali Khan)" />
-      <button onclick="searchByName()">Search</button>
-    </div>
+  <!-- Board selector -->
+  <div class="box">
+    <select id="boardSelect">
+      <option value="">-- Select Your Board --</option>
+      <option value="https://www.biselahore.com/">Lahore Board</option>
+      <option value="https://www.bisemultan.edu.pk/">Multan Board</option>
+      <option value="https://www.bisegrw.edu.pk/">Gujranwala Board</option>
+      <option value="https://www.bisefsd.edu.pk/">Faisalabad Board</option>
+      <option value="https://www.bisesahiwal.edu.pk/">Sahiwal Board</option>
+      <option value="https://www.biserwp.edu.pk/">Rawalpindi Board</option>
+      <option value="https://www.bisebwp.edu.pk/">Bahawalpur Board</option>
+      <option value="https://www.bisesargodha.edu.pk/">Sargodha Board</option>
+      <option value="https://www.bisedgkhan.edu.pk/">DG Khan Board</option>
+    </select>
+    <button onclick="goToBoard()">Click Here</button>
   </div>
-
-  <!-- Click here -->
-  <div class="click-box">
-    <button onclick="window.scrollTo({top:500, behavior:'smooth'})">Click Here</button>
-  </div>
-
-  <!-- Results -->
-  <div class="result-area" id="resultArea"></div>
 
 <script>
-  // JSON file path (upload later when result is announced)
-  const RESULTS_JSON = 'results/2025_2nd.json';
-  let resultsData = null;
-
-  async function loadResults(){
-    if (resultsData !== null) return;
-    try {
-      const r = await fetch(RESULTS_JSON, {cache:"no-store"});
-      if (!r.ok) { resultsData = []; return; }
-      const json = await r.json();
-      resultsData = json.map(item => ({
-        roll: (item.roll || '').toString().trim(),
-        name: (item.name || '').toString().trim(),
-        father: item.father || '',
-        marks: item.marks || '',
-        grade: item.grade || '',
-        board: item.board || ''
-      }));
-    } catch(e){ resultsData = []; }
-  }
-
-  function toTitleCase(str){
-    return String(str).toLowerCase().split(' ').map(s=>{
-      if (!s) return '';
-      return s.charAt(0).toUpperCase() + s.slice(1);
-    }).join(' ');
-  }
-
-  function renderTable(rows){
-    if (!rows || !rows.length) return '<div class="no-result">No Results to show</div>';
-    let html = '<table class="result-table"><thead><tr><th>Roll</th><th>Name</th><th>Father</th><th>Marks</th><th>Grade</th><th>Board</th></tr></thead><tbody>';
-    for (const r of rows){
-      html += `<tr>
-        <td>${escapeHtml(r.roll)}</td>
-        <td>${escapeHtml(toTitleCase(r.name))}</td>
-        <td>${escapeHtml(toTitleCase(r.father))}</td>
-        <td>${escapeHtml(r.marks)}</td>
-        <td>${escapeHtml(r.grade)}</td>
-        <td>${escapeHtml(r.board)}</td>
-      </tr>`;
+  function goToBoard(){
+    const url = document.getElementById("boardSelect").value;
+    if(!url){
+      alert("Please select your board first!");
+      return;
     }
-    html += '</tbody></table>';
-    return html;
-  }
-
-  function escapeHtml(s){
-    if (!s) return '';
-    return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-  }
-
-  async function searchByRoll(){
-    const roll = document.getElementById('rollInput').value.trim();
-    const area = document.getElementById('resultArea');
-    area.innerHTML = '';
-    if (!roll) { area.innerHTML = '<div class="no-result">Please enter Roll Number.</div>'; return; }
-    await loadResults();
-    if (!resultsData.length) { area.innerHTML = '<div class="no-result">Results file not uploaded yet.</div>'; return; }
-    const found = resultsData.find(r => r.roll === roll);
-    if (!found) { area.innerHTML = `<div class="no-result">No Result Found for roll: ${escapeHtml(roll)}</div>`; return; }
-    area.innerHTML = renderTable([found]);
-  }
-
-  async function searchByName(){
-    const name = document.getElementById('nameInput').value.trim().toLowerCase();
-    const area = document.getElementById('resultArea');
-    area.innerHTML = '';
-    if (!name) { area.innerHTML = '<div class="no-result">Please enter Name.</div>'; return; }
-    await loadResults();
-    if (!resultsData.length) { area.innerHTML = '<div class="no-result">Results file not uploaded yet.</div>'; return; }
-    const matches = resultsData.filter(r => (r.name || '').toLowerCase().includes(name));
-    if (!matches.length) { area.innerHTML = `<div class="no-result">No Results Found for name: ${escapeHtml(name)}</div>`; return; }
-    area.innerHTML = renderTable(matches.slice(0,50));
+    window.open(url, "_blank");
   }
 </script>
 
