@@ -1,104 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Punjab Boards 2nd Year Result 2025 - Check All Boards Online</title>
-  <meta name="description" content="Check Punjab Boards 2nd Year Result 2025 online. Lahore, Multan, Faisalabad, Gujranwala, Sahiwal, Bahawalpur, Sargodha, DG Khan, and Rawalpindi Boards result with official links." />
-  <meta name="keywords" content="Punjab Board 2nd Year Result 2025, Lahore Board Result, Multan Board Result, Faisalabad Board Result, Gujranwala Board Result, DG Khan Board Result, Rawalpindi Board Result, Bahawalpur Board Result, Sargodha Board Result, Sahiwal Board Result" />
-  <style>
-    body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#fff; color:#000; line-height:1.6; }
-    .top-row { background:#1b8a3e; color:#fff; padding:14px; font-size:22px; font-weight:800; text-align:center; }
-    .sub-row { background:#1b8a3e; color:#fff; padding:18px; font-size:26px; font-weight:900; text-align:center; margin:18px auto; width:70%; border-radius:8px; }
-    .box { margin:20px auto; width:320px; text-align:center; }
-    select { width:100%; padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
-    button { margin-top:15px; background:#1b8a3e; color:#fff; border:none; padding:12px 22px; font-size:18px; border-radius:8px; cursor:pointer; font-weight:800; }
-    section { margin:30px auto; max-width:800px; padding:0 20px; }
-    h2 { color:#1b8a3e; font-size:22px; margin-top:20px; }
-    a { color:#1b8a3e; text-decoration:none; font-weight:bold; }
-    a:hover { text-decoration:underline; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Social buttons */
-    .share { text-align:center; margin:30px 0; }
-    .share a { display:inline-block; margin:0 10px; padding:12px 20px; border-radius:6px; color:#fff; font-weight:700; text-decoration:none; }
-    .whatsapp { background:#25D366; }
-    .facebook { background:#1877F2; }
-    .twitter { background:#1DA1F2; }
+  <!-- SEO -->
+  <title>2025 Result Online Check | All Boards | StudyHub</title>
+  <meta name="description" content="Check 2025 exam results online for all boards of Pakistan. Select your board, enter roll number and view your result instantly.">
+  <meta name="keywords" content="2025 result, check result online, all boards result, Punjab board result, Sindh board result, KPK result, Lahore result, Multan result">
+  <meta name="author" content="StudyHub9">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="2025 Result Online Check | All Boards | StudyHub">
+  <meta property="og:description" content="Check your 2025 exam results online for all Pakistani boards. Just select board & enter roll number.">
+  <meta property="og:url" content="https://studyhub9.github.io/2025result/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://studyhub9.github.io/2025result/thumbnail.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="2025 Result Online Check | All Boards | StudyHub">
+  <meta name="twitter:description" content="Check your 2025 exam results online for all boards. Select your board, enter roll number & see result.">
+  <meta name="twitter:image" content="https://studyhub9.github.io/2025result/thumbnail.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #004aad;
+      color: white;
+      padding: 20px;
+    }
+    header h1 { margin: 0; }
+    main {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    select, input, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #004aad;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #003080;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #222;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>2025 Result Online Check</h1>
+    <p>Select your board and enter roll number to check result</p>
+  </header>
 
-  <!-- Top row -->
-  <div class="top-row">All Punjab Board Result</div>
+  <main>
+    <form onsubmit="redirectResult(event)">
+      <label for="board">Select Your Board:</label><br>
+      <select id="board" required>
+        <option value="">-- Select Board --</option>
+        <option value="lahore">BISE Lahore</option>
+        <option value="multan">BISE Multan</option>
+        <option value="faisalabad">BISE Faisalabad</option>
+        <option value="gujranwala">BISE Gujranwala</option>
+        <option value="rawalpindi">BISE Rawalpindi</option>
+        <option value="sahiwal">BISE Sahiwal</option>
+        <option value="dgkhan">BISE D.G. Khan</option>
+        <option value="bahawalpur">BISE Bahawalpur</option>
+        <option value="karachi">Karachi Board</option>
+        <option value="sindh">Sindh Board</option>
+        <option value="kpk">KPK Board</option>
+        <option value="quetta">Quetta Board</option>
+        <option value="ajk">AJK Board</option>
+      </select><br>
 
-  <!-- Center row -->
-  <div class="sub-row">2nd Year Result 2025</div>
+      <label for="roll">Enter Roll Number:</label><br>
+      <input type="text" id="roll" placeholder="e.g. 123456" required><br>
 
-  <!-- Board selector -->
-  <div class="box">
-    <select id="boardSelect">
-      <option value="">-- Select Your Board --</option>
-      <option value="https://www.biselahore.com/">Lahore Board</option>
-      <option value="https://www.bisemultan.edu.pk/">Multan Board</option>
-      <option value="https://www.bisegrw.edu.pk/">Gujranwala Board</option>
-      <option value="https://www.bisefsd.edu.pk/">Faisalabad Board</option>
-      <option value="https://www.bisesahiwal.edu.pk/">Sahiwal Board</option>
-      <option value="https://www.biserwp.edu.pk/">Rawalpindi Board</option>
-      <option value="https://www.bisebwp.edu.pk/">Bahawalpur Board</option>
-      <option value="https://www.bisesargodha.edu.pk/">Sargodha Board</option>
-      <option value="https://www.bisedgkhan.edu.pk/">DG Khan Board</option>
-    </select>
-    <button onclick="goToBoard()">Click Here</button>
-  </div>
+      <button type="submit">Check Result</button>
+    </form>
 
-  <!-- SEO Content -->
-  <section>
-    <h2>Lahore Board 2nd Year Result 2025</h2>
-    <p>Lahore Board Intermediate Part 2 Result 2025 will be announced on 18 September. Students can check their result by roll number or name from the <a href="https://www.biselahore.com/" target="_blank">official Lahore Board website</a>.</p>
+    <div id="note" style="margin-top:20px; font-size:14px; color:#555;">
+      Note: You will be redirected to the official board result page.
+    </div>
+  </main>
 
-    <h2>Multan Board 2nd Year Result 2025</h2>
-    <p>Multan Board students can check their Intermediate Part 2 Result 2025 online by roll number or name at the <a href="https://www.bisemultan.edu.pk/" target="_blank">Multan Board official site</a>.</p>
+  <footer>
+    <p>© 2025 StudyHub9 - All Pakistan Boards Result</p>
+  </footer>
 
-    <h2>Faisalabad Board 2nd Year Result 2025</h2>
-    <p>Faisalabad Board 12th class result 2025 will be declared online. Students can check their marks through the <a href="https://www.bisefsd.edu.pk/" target="_blank">Faisalabad Board official website</a>.</p>
+  <script>
+    function redirectResult(e) {
+      e.preventDefault();
+      const board = document.getElementById("board").value;
+      const roll = document.getElementById("roll").value.trim();
 
-    <h2>Gujranwala Board 2nd Year Result 2025</h2>
-    <p>Check Gujranwala Board Intermediate Part 2 Result 2025 from the <a href="https://www.bisegrw.edu.pk/" target="_blank">official Gujranwala Board site</a> by entering roll number.</p>
+      if(!board || !roll){
+        alert("Please select board and enter roll number");
+        return;
+      }
 
-    <h2>Sahiwal Board 2nd Year Result 2025</h2>
-    <p>Sahiwal Board HSSC Part 2 Result 2025 will be available online on <a href="https://www.bisesahiwal.edu.pk/" target="_blank">Sahiwal Board website</a>.</p>
+      // Boards ka official URL mapping
+      const urls = {
+        lahore: "https://result.biselahore.com/",
+        multan: "https://results.bisemultan.edu.pk/",
+        faisalabad: "https://www.bisefsd.edu.pk/",
+        gujranwala: "https://www.bisegrw.edu.pk/",
+        rawalpindi: "https://www.biserwp.edu.pk/",
+        sahiwal: "https://www.bisesahiwal.edu.pk/",
+        dgkhan: "https://www.bisedgkhan.edu.pk/",
+        bahawalpur: "https://www.bisebwp.edu.pk/",
+        karachi: "https://www.bsek.edu.pk/",
+        sindh: "https://www.sindheducation.gov.pk/",
+        kpk: "https://www.bisep.edu.pk/",
+        quetta: "https://www.bbiseqta.edu.pk/",
+        ajk: "https://www.ajkbise.net/"
+      };
 
-    <h2>Rawalpindi Board 2nd Year Result 2025</h2>
-    <p>Rawalpindi Board students can check their FA/FSc 2nd Year Result 2025 from the <a href="https://www.biserwp.edu.pk/" target="_blank">official Rawalpindi Board site</a>.</p>
-
-    <h2>Bahawalpur Board 2nd Year Result 2025</h2>
-    <p>Bahawalpur Board Intermediate 2nd Year Result 2025 will be announced on the <a href="https://www.bisebwp.edu.pk/" target="_blank">Bahawalpur Board site</a>.</p>
-
-    <h2>Sargodha Board 2nd Year Result 2025</h2>
-    <p>Sargodha Board students can view their 12th class result online from <a href="https://www.bisesargodha.edu.pk/" target="_blank">Sargodha Board official page</a>.</p>
-
-    <h2>DG Khan Board 2nd Year Result 2025</h2>
-    <p>DG Khan Board HSSC Part 2 Result 2025 will be declared at <a href="https://www.bisedgkhan.edu.pk/" target="_blank">DG Khan Board site</a> for all students.</p>
-  </section>
-
-  <!-- Social Share -->
-  <div class="share">
-    <h3>📢 Share This Page</h3>
-    <a class="whatsapp" href="https://wa.me/?text=Check%20Punjab%20Board%202nd%20Year%20Result%202025%20here%3A%20YOUR_SITE_URL" target="_blank">WhatsApp</a>
-    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=YOUR_SITE_URL" target="_blank">Facebook</a>
-    <a class="twitter" href="https://twitter.com/intent/tweet?url=YOUR_SITE_URL&text=Check%20Punjab%20Board%202nd%20Year%20Result%202025" target="_blank">Twitter</a>
-  </div>
-
-<script>
-  function goToBoard(){
-    const url = document.getElementById("boardSelect").value;
-    if(!url){
-      alert("Please select your board first!");
-      return;
+      if(urls[board]){
+        // Redirect to official board site
+        window.open(urls[board], "_blank");
+      } else {
+        alert("Board result page not available yet.");
+      }
     }
-    window.open(url, "_blank");
-  }
-</script>
-
+  </script>
 </body>
 </html>
