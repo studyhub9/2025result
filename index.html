@@ -1,184 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2025 Result Online Check | All Boards of Pakistan</title>
+  <meta name="description" content="Check 2025 exam results online for all boards of Pakistan. Select your board and view result instantly." />
+  <meta name="keywords" content="2025 result, all boards result, Lahore board result, Multan board result, check result online" />
 
-  <!-- SEO -->
-  <title>2025 Result Online Check | All Boards | StudyHub</title>
-  <meta name="description" content="Check 2025 exam results online for all boards of Pakistan. Select your board, enter roll number and view your result instantly.">
-  <meta name="keywords" content="2025 result, check result online, all boards result, Punjab board result, Sindh board result, KPK result, Lahore result, Multan result">
-  <meta name="author" content="StudyHub9">
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="favicon.png" type="image/png">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="2025 Result Online Check | All Boards | StudyHub">
-  <meta property="og:description" content="Check your 2025 exam results online for all Pakistani boards. Just select board & enter roll number.">
-  <meta property="og:url" content="https://studyhub9.github.io/2025result/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://studyhub9.github.io/2025result/thumbnail.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="2025 Result Online Check | All Boards | StudyHub">
-  <meta name="twitter:description" content="Check your 2025 exam results online for all boards. Select your board, enter roll number & see result.">
-  <meta name="twitter:image" content="https://studyhub9.github.io/2025result/thumbnail.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- CSS -->
+  <!-- Simple green theme CSS -->
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-      background: linear-gradient(135deg, #f3f9ff, #dfe9f3);
-      color: #333;
+    :root{
+      --green-1: #0f8a5f;
+      --green-2: #16a34a;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --page-bg: linear-gradient(135deg,#f6fffa,#ecfdf5);
+      --max-width: 900px;
     }
-    header {
-      background: linear-gradient(135deg, #004aad, #0077ff);
-      color: white;
-      padding: 30px 20px;
+    *{box-sizing: border-box;}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
+      background: var(--page-bg);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header{
+      background: linear-gradient(90deg,var(--green-1),var(--green-2));
+      color: #fff;
+      padding: 32px 16px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(6,95,70,0.12);
     }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    header p {
-      margin: 8px 0 0;
-      font-size: 16px;
-      opacity: 0.9;
-    }
-    main {
-      margin: 30px auto;
-      padding: 25px;
-      background: #fff;
+    header h1{ margin:0; font-size:28px; letter-spacing:0.2px; }
+    header p{ margin:6px 0 0; opacity:0.95; font-size:15px; }
+
+    main.container{
+      max-width: var(--max-width);
+      margin: -40px auto 40px; /* overlap header slightly */
+      padding: 24px;
+      background: var(--card-bg);
       border-radius: 12px;
-      max-width: 600px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.08);
       text-align: center;
     }
-    label {
-      font-weight: bold;
-      display: block;
-      margin: 15px 0 5px;
-      text-align: left;
+
+    .intro{
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size:15px;
     }
-    select, input {
-      padding: 12px;
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-      margin-bottom: 15px;
+
+    label{ display:block; text-align:left; margin:14px 0 6px; font-weight:600; color:#072d1f;}
+    select, input[type="text"] {
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid #d1fae5;
+      background: #f8fffb;
+      font-size:15px;
+      outline:none;
+      transition: box-shadow .15s ease, transform .08s ease;
     }
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-      background: linear-gradient(135deg, #004aad, #0077ff);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    select:focus, input:focus { box-shadow: 0 6px 18px rgba(16,185,129,0.12); transform: translateY(-1px); }
+
+    .btn {
+      width:100%;
+      padding:13px 16px;
+      margin-top:12px;
+      border-radius:10px;
+      background: linear-gradient(90deg,var(--green-2),var(--green-1));
+      color: #fff;
+      font-weight:700;
+      border:none;
+      font-size:16px;
+      cursor:pointer;
+      box-shadow: 0 8px 20px rgba(16,185,129,0.18);
+      transition: transform .12s ease, box-shadow .12s ease;
     }
-    button:hover {
-      background: linear-gradient(135deg, #003080, #005ad6);
-      transform: translateY(-2px);
+    .btn:hover{ transform: translateY(-3px); box-shadow: 0 14px 32px rgba(16,185,129,0.22); }
+
+    .note{ margin-top:14px; color:var(--muted); font-size:14px; }
+
+    footer{
+      margin-top:18px;
+      padding:18px 10px;
+      text-align:center;
+      color:#5b6166;
+      font-size:13px;
     }
-    #note {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background: #222;
-      color: #aaa;
-      text-align: center;
-      font-size: 14px;
+
+    /* Responsive */
+    @media (min-width:720px){
+      header h1{ font-size:34px; }
+      main.container{ padding:32px; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>2025 Result Online Check</h1>
-    <p>Select your board and enter roll number to check result</p>
+    <p>Select your board and visit the board page to check results</p>
   </header>
 
-  <main>
-    <form onsubmit="redirectResult(event)">
-      <label for="board">Select Your Board:</label>
+  <main class="container">
+    <p class="intro">Choose your board below — each board has its own result page. If a board page isn't available yet, come back later or check the official site link on that page.</p>
+
+    <form onsubmit="goToBoard(event)" aria-label="Board selection form">
+      <label for="board">Select Board</label>
       <select id="board" required>
         <option value="">-- Select Board --</option>
-        <option value="lahore">BISE Lahore</option>
-        <option value="multan">BISE Multan</option>
-        <option value="faisalabad">BISE Faisalabad</option>
-        <option value="gujranwala">BISE Gujranwala</option>
-        <option value="rawalpindi">BISE Rawalpindi</option>
-        <option value="sargodha">BISE Sargodha</option>
-        <option value="sahiwal">BISE Sahiwal</option>
-        <option value="dgkhan">BISE D.G. Khan</option>
-        <option value="bahawalpur">BISE Bahawalpur</option>
-        <option value="karachi">Karachi Board</option>
-        <option value="sindh">Sindh Board</option>
-        <option value="kpk">KPK Board (Peshawar)</option>
-        <option value="quetta">Quetta Board</option>
-        <option value="ajk">AJK Board</option>
+        <option value="lahore-result-2025.html">BISE Lahore</option>
+        <option value="multan-result-2025.html">BISE Multan</option>
+        <option value="faisalabad-result-2025.html">BISE Faisalabad</option>
+        <option value="gujranwala-result-2025.html">BISE Gujranwala</option>
+        <option value="rawalpindi-result-2025.html">BISE Rawalpindi</option>
+        <option value="sargodha-result-2025.html">BISE Sargodha</option>
+        <option value="sahiwal-result-2025.html">BISE Sahiwal</option>
+        <option value="dgkhan-result-2025.html">BISE D.G. Khan</option>
+        <option value="bahawalpur-result-2025.html">BISE Bahawalpur</option>
+        <option value="karachi-result-2025.html">Karachi Board</option>
+        <option value="sindh-result-2025.html">Sindh Board</option>
+        <option value="kpk-result-2025.html">KPK Board</option>
+        <option value="quetta-result-2025.html">Quetta Board</option>
+        <option value="ajk-result-2025.html">AJK Board</option>
       </select>
 
-      <label for="roll">Enter Roll Number:</label>
-      <input type="text" id="roll" placeholder="e.g. 123456" required>
+      <label for="roll">(Optional) Enter Roll Number</label>
+      <input type="text" id="roll" placeholder="e.g. 123456 — optional">
 
-      <button type="submit">Check Result</button>
+      <button class="btn" type="submit">Open Board Page</button>
     </form>
 
-    <div id="note">Note: You will be redirected to the official board result page.</div>
+    <p class="note">Tip: For better SEO, make sure each board page contains unique headings and a short paragraph about how to check results (we'll prepare those pages too).</p>
   </main>
 
   <footer>
-    <p>© 2025 StudyHub9 - All Pakistan Boards Result</p>
+    © 2025 StudyHub9 — All Pakistan Boards Result
   </footer>
 
   <script>
-    function redirectResult(e) {
+    function goToBoard(e){
       e.preventDefault();
-      const board = document.getElementById("board").value;
-      const roll = document.getElementById("roll").value.trim();
+      const boardPage = document.getElementById('board').value;
+      const roll = document.getElementById('roll').value.trim();
 
-      if(!board || !roll){
-        alert("Please select board and enter roll number");
+      if(!boardPage){
+        alert('Please select a board first.');
         return;
       }
 
-      // Official board result URLs
-      const urls = {
-        lahore: "https://www.biselahore.com/",
-        multan: "https://web.bisemultan.edu.pk/results/",
-        faisalabad: "https://www.bisefsd.edu.pk/",
-        gujranwala: "http://bisegrw.com/",
-        rawalpindi: "https://www.biserwp.edu.pk/",
-        sargodha: "https://bisesargodha.edu.pk/",
-        sahiwal: "https://www.bisesahiwal.edu.pk/",
-        dgkhan: "https://www.bisedgkhan.edu.pk/",
-        bahawalpur: "https://www.bisebwp.edu.pk/",
-        karachi: "https://www.bsek.edu.pk/",
-        sindh: "https://www.sindheducation.gov.pk/",
-        kpk: "https://www.bisep.edu.pk/",
-        quetta: "https://www.bbiseqta.edu.pk/",
-        ajk: "https://ajkbise.edu.pk/"
-      };
-
-      if(urls[board]){
-        window.open(urls[board], "_blank");
-      } else {
-        alert("Board result page not available yet.");
-      }
+      // If you want to pass roll number via querystring (optional)
+      const url = roll ? boardPage + '?roll=' + encodeURIComponent(roll) : boardPage;
+      window.location.href = url;
     }
   </script>
 </body>
